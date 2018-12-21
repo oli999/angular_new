@@ -1,0 +1,39 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <h1>{{title}}</h1>
+  <p>{{nums[0]}}, {{nums[1]}}, {{nums[2]}}</p>
+  <p>{{friends[0]}}, {{friends[1]}}, {{friends[2]}}</p>
+  
+  <h3>숫자 목록</h3>
+  <ul>
+    <li *ngFor="let tmp of nums">{{tmp}}</li>    
+  </ul>
+  
+  <h3>친구 목록</h3>
+  <ul>
+    <li *ngFor="let tmp of friends;index as i">{{i}} : {{tmp}}</li>
+  </ul>
+
+  <h3>사람 정보</h3>
+  <p>번호:{{person.num}}, 이름:{{person.name}}, 주소:{{person.addr}}</p>
+
+  <h3>내차 정보</h3>
+  <p>차이름: {{myCar.name}}, 차색상: {{myCar.color}}</p>
+
+  <h3>차 목록 입니다.</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>이름</th>
+        <th>색상</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tmp of cars">
+        <td>{{tmp.name}}</td>
+        <td>{{tmp.color}}</td>
+      </tr>
+    </tbody>
+  </table>
+<div>
+
