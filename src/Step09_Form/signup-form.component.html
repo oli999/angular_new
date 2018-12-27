@@ -1,0 +1,41 @@
+<!-- signup-form.component.html -->
+<h3>회원 가입 폼 입니다.</h3>
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+	<div [ngClass]="{'has-error':id.invalid && id.dirty,'has-success':id.valid}" class="form-group has-feedback">
+		<label for="id" class="control-label">아이디</label>
+		<input [(ngModel)]="model.id" name="id" id="id" type="text" class="form-control" #id="ngModel" required />
+		<i *ngIf="id.valid" class="glyphicon glyphicon-ok form-control-feedback"></i>
+		<i *ngIf="id.invalid && id.dirty" class="glyphicon glyphicon-remove form-control-feedback"></i>
+		<span *ngIf="id.invalid && id.dirty" class="help-block">필수 입력 필드 입니다.</span>
+	</div>
+	<div [ngClass]="{'has-error':pwd.invalid && pwd.dirty,'has-success':pwd.valid}" class="form-group has-feedback">
+		<label for="pwd" class="control-label">비밀번호</label>
+		<input [(ngModel)]="model.pwd" name="pwd" id="pwd" type="text" class="form-control" required minlength="5" #pwd="ngModel"/>
+		<i *ngIf="pwd.valid" class="glyphicon glyphicon-ok form-control-feedback"></i>
+		<i *ngIf="pwd.invalid && pwd.dirty" class="glyphicon glyphicon-remove form-control-feedback"></i>
+		<span *ngIf="pwd.errors?.required" class="help-block">필수 입력 필드 입니다.</span>
+		<span *ngIf="pwd.errors?.minlength" class="help-block">5글자 이상 입력하세요.</span>
+	</div>
+	<div [ngClass]="{'has-error':email.invalid && email.dirty,'has-success':email.valid && email.dirty}" class="form-group has-feedback">
+		<label class="control-label" for="email">이메일</label>
+		<input type="text" class="form-control" name="email" id="email" [(ngModel)]="model.email" #email="ngModel" 
+			pattern="[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}"/>
+		<i *ngIf="email.valid && email.dirty" class="glyphicon glyphicon-ok form-control-feedback"></i>
+		<i *ngIf="email.invalid && email.dirty" class="glyphicon glyphicon-remove form-control-feedback"></i>
+		<span *ngIf="email.invalid && email.dirty">이메일 형식에 맞게 입력하세요.</span>
+	</div>
+	<button [disabled]="myForm.invalid" type="submit" class="btn btn-primary">가입</button>
+</form>
+<p> myForm.value=<strong>{{myForm.value | json}}</strong></p>
+
+<p> id.valid=<strong>{{id.valid}}</strong></p>
+<p> id.invalid=<strong>{{id.invalid}}</strong></p>
+<p> id.pristine=<strong>{{id.pristine}}</strong></p>
+<p> id.dirty=<strong>{{id.dirty}}</strong></p>
+<p *ngIf="pwd.errors?.required">비밀번호 반드시 입력</p>
+<p *ngIf="pwd.errors?.minlength">5글자 이상</p>
+
+<p> email.valid=<strong>{{email.valid}}</strong></p>
+
+<p> myForm.valid=<strong>{{myForm.valid}}</strong></p>
+<p> myForm.invalid=<strong>{{myForm.invalid}}</strong></p>
