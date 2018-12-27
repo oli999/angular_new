@@ -1,0 +1,56 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <h3>class 제어하기</h3>
+  <button class="btn btn-default">버튼</button>
+  <button [class]="myClass">버튼</button>
+  <button [class]="'btn btn-info'">버튼</button>
+  <h3>class 제어하기2</h3>
+  <button class="btn btn-default"
+    [class.btn-lg]="true">큰버튼</button>
+  <button class="btn btn-default"
+    [class.btn-lg]="false">보통 버튼</button>
+  <button class="btn btn-default"
+    [class.btn-xs]="true" >작은 버튼</button>
+
+  <h3>특정 클래스만 추가 혹은 제거</h3>
+  <input type="checkbox" [(ngModel)]="isLarge"/>
+  <br/>
+  <button class="btn btn-primary"
+    [class.btn-lg]="isLarge">버튼</button>
+
+  <h3>ngClass 디렉티브 활용</h3>
+  <button [ngClass]="'btn btn-success'">버튼</button>
+  <button [ngClass]="['btn', 'btn-warning']">버튼</button>
+  <button [ngClass]="{'btn':true, 'btn-danger':true}">버튼</button>
+
+  <h3>class 활용 예제</h3>
+  <input type="text" [(ngModel)]="inputClass"/>
+  <br/>
+  <button [class]="inputClass">버튼</button>
+  <button [ngClass]="inputClass">버튼</button>
+
+  <h3>Tab 예제</h3>
+  <ul class="nav nav-tabs"> 
+    <li [class.active]="thisPage=='home'">
+      <a (click)="thisPage='home'" href="#home">home</a>
+    </li>
+    <li [class.active]="thisPage=='game'">
+      <a (click)="thisPage='game'" href="#game">game</a>
+    </li>
+    <li [class.active]="thisPage=='shop'">
+      <a (click)="thisPage='shop'"  href="#shop">shop</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+      <div [class.active]="thisPage=='home'" class="tab-pane" id="home">
+        <p class="bg-success">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit neque, nemo dolor veniam. Commodi ex cupiditate, sunt fugiat architecto recusandae cum consequuntur laudantium, voluptate illo velit nesciunt enim dolorum doloribus.</p>
+      </div>
+      <div [class.active]="thisPage=='game'" class="tab-pane" id="game">
+        <p class="bg-primary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit neque, nemo dolor veniam. Commodi ex cupiditate, sunt fugiat architecto recusandae cum consequuntur laudantium, voluptate illo velit nesciunt enim dolorum doloribus.</p>
+      </div>
+      <div [class.active]="thisPage=='shop'" class="tab-pane" id="shop">
+        <p class="bg-danger">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit neque, nemo dolor veniam. Commodi ex cupiditate, sunt fugiat architecto recusandae cum consequuntur laudantium, voluptate illo velit nesciunt enim dolorum doloribus.</p>
+      </div>
+  </div>
+</div>
+

@@ -1,0 +1,26 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <h3>style 속성 조작</h3>
+  <p style="color:red;">첫번째 p</p>
+  <p [style.color]="'blue'">두번째 p</p>
+  <p [style.background-color]="'yellow'">세번째 p</p>
+
+  <h3>style 속성 조작2</h3>
+  <input type="color" [(ngModel)]="fColor"/>
+  <input type="range" min="5" max="100" value="16"
+    [(ngModel)]="fSize"/>
+  <strong>{{fSize}}</strong>px
+  <p [style.color]="fColor"
+     [style.font-size.px]="fSize">어쩌구.. 저쩌구..</p>
+  
+  <h3>ngStyle 디렉티브 이용</h3>
+  <div [ngStyle]="{'width':'100px','height.px':100,'background-color':'yellow'}">div</div>
+
+  <h3>예제</h3>
+  <button (click)="mLeft=mLeft+10">움직이기</button>
+  <br/>
+  <img [style.margin-left.px]="mLeft" src="/assets/images/kim1.png"/>
+  <br/>
+  <img [ngStyle]="{'margin-left.px':mLeft}" src="/assets/images/kim1.png"/>
+</div>
+

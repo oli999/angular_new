@@ -1,29 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
-  <h3>UI 이벤트 처리</h3>
-  <button class="btn btn-primary" (click)="btnClicked()">눌러보셈</button>
-  <button class="btn btn-info"
-    (click)="clickCount=clickCount+1">{{clickCount}}</button>
-  <p *ngIf="clickCount >= 3">버튼을 3번 이상 눌렀네유~</p>
-  <input type="text" (keyup)="keyUpped($event)" />
-  <p>{{inputMsg}}</p>
-  <p [innerText]="inputMsg"></p>
-
-  <input type="checkbox" #one (change)="isChecked=one.checked"/>
-  <input type="checkbox" [checked]="isChecked"/>
-  <p [hidden]="!isChecked">체크 박스가 체크 되었습니다.</p>
-
-  <input type="text" #two (input)="msg=two.value"/>
-  <p>{{msg}}</p>
-  <p [innerText]="msg"></p>
-
-  <h3>양방향 바인딩 테스트</h3>
-  <input type="text" placeholder="인사 입력..." 
-    (input)='greeting=$event.target.value'/>
-  <p>{{greeting}}</p>
-  <input type="text" [value]="greeting"
-    (input)='greeting=$event.target.value'/>
-  <!-- ngModel 을 이용한 양방향 바인딩 -->
-  <input type="text" [(ngModel)]="greeting"/>
-<div>
+ 
+</div>
 

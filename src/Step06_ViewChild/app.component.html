@@ -1,0 +1,22 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <h3>문서 객체의 참조값 직접 사용하기</h3>
+  <input type="text" #one/>
+  <button (click)="one.value='hello'">one</button>
+  <br/>
+  <input type="text" #two/>
+  <button (click)="two.value='bye'">two</button>
+  <br/>
+  <input type="text" ref-three/>
+  <button (click)="three.value='oh'">three</button>
+
+  <h3>컨트롤러에서 문서객체의 참조값이 필요하다면?</h3>
+  <input type="text" #four/>
+  <!-- 참조값을 함수에 직접 전달하는 방법 -->
+  <button (click)="fourClicked(four)">four</button>
+  <br/>
+  <!-- 참조값을 전달하지 않고 @ViewChild 를 이용하기 -->
+  <input type="text" #five/>
+  <button (click)="fiveClicked()">five</button>
+</div>
+
